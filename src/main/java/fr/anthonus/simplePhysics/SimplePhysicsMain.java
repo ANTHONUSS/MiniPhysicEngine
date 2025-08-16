@@ -35,13 +35,16 @@ public class SimplePhysicsMain extends Application {
         double screenHeight = root.getHeight();
 
         for(int i = 0; i < 50; i++) {
-            double x = random.nextDouble(PhysicCircle.DEFAULT_RADIUS, screenWidth - PhysicCircle.DEFAULT_RADIUS);
-            double y = random.nextDouble(PhysicCircle.DEFAULT_RADIUS, screenHeight - PhysicCircle.DEFAULT_RADIUS);
-
+            double radius = PhysicCircle.DEFAULT_RADIUS;
+            double x = random.nextDouble(radius, screenWidth - radius);
+            double y = random.nextDouble(radius, screenHeight - radius);
             PhysicCircle ball = new PhysicCircle(x, y, Color.color(random.nextDouble(), random.nextDouble(), random.nextDouble()));
             PhysicsEngine.addPhysicObject(ball);
             root.getChildren().add(ball);
 
+            radius = PhysicsRectangle.DEFAULT_SIZE;
+            x = random.nextDouble(radius, screenWidth - radius);
+            y = random.nextDouble(radius, screenHeight - radius);
             PhysicsRectangle rectangle = new PhysicsRectangle(x, y, Color.color(random.nextDouble(), random.nextDouble(), random.nextDouble()));
             PhysicsEngine.addPhysicObject(rectangle);
             root.getChildren().add(rectangle);
